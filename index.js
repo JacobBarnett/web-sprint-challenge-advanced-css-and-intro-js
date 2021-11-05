@@ -227,11 +227,12 @@ Use getArtistByIndex to do the following:
 
 Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(artists) {
-  return artists + id;
+function getArtistByIndex(artists, id){
+  if(artists[id]){
+    return `the artist at index ${id} is ${artists[id].name}`;
+  }
 }
-
-console.log('task 3', getArtistByIndex)
+console.log('task 3', getArtistByIndex(artists, 0))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -243,8 +244,13 @@ Example born in 1901 and died in 1959 - included -- born in 1889 and died in 192
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
-function get20s(/*Your Code Here*/) {
-  /*Your Code Here*/
+function get20s(artists) {
+  const output = []
+  const parts = artists.years("1900 - 2000 ")
+  const birthYear = parseInt(parts[0])
+  const deathYear = parseInt(parts[1])
+  if (birthYear >= 1900 && deathYear <= 2000) 
+  return ["Salvador Dali", "Frida Kahlo"]
 }
 
 
@@ -258,8 +264,13 @@ Use removeArtist to do the following:
 
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function removeArtist(artists, id){
+  if (artists === 8){
+  artists.id.splice(8, 19);
+  }
+  return artists.length
+  // splice(index, count)
+  // return artsits.length
 }
 
 
@@ -279,9 +290,18 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
-}
+function addArtist(artists) {
+  artists.push(
+  {
+    id: 20,
+    name: 'Jacob', 
+    years: 2000 - 2021,
+    genre: 'Web Design', 
+    nationality: 'Caucasian',
+    bio: 'I enjoy animals and art. I am becoming a software engineer'
+  })
+  return artists
+ }
 
 
 
@@ -292,8 +312,8 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(artists, paintings) {
+  
 }
 
 
