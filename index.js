@@ -245,12 +245,15 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
 function get20s(artists) {
-  const output = []
-  const parts = artists.years("1900 - 2000 ")
-  const birthYear = parseInt(parts[0])
-  const deathYear = parseInt(parts[1])
-  if (birthYear >= 1900 && deathYear <= 2000) 
-  return ["Salvador Dali", "Frida Kahlo"]
+  for( const artist of artists) {
+    const parts = artist.years.split(" - ");
+    const birthYear = parseInt(parts[0])
+    const deathYear = parseInt(parts[1])
+    if (birthYear >= 1900 && deathYear <= 2000) {
+    }
+  }
+  
+  return output;
 }
 
 
@@ -265,12 +268,8 @@ Use removeArtist to do the following:
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
 function removeArtist(artists, id){
-  if (artists === 8){
-  artists.id.splice(8, 19);
-  }
+  artists.splice(id, 1);
   return artists.length
-  // splice(index, count)
-  // return artsits.length
 }
 
 
@@ -313,7 +312,13 @@ Use lotsOfArt to do the following:
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
 function lotsOfArt(artists, paintings) {
-  
+  const output = []
+  for ( const artist of artists) {
+    if (artist.paintings > 100) {
+      output.push(artist.name)
+    }
+  }
+  return output;
 }
 
 
